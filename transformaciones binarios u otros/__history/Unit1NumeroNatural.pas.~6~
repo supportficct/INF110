@@ -1,0 +1,207 @@
+unit Unit1NumeroNatural;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Menus, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Label1: TLabel;
+    NU: TEdit;
+    R: TEdit;
+    Label2: TLabel;
+    Label3: TLabel;
+    MainMenu1: TMainMenu;
+    OPERACIONES1: TMenuItem;
+    CONTARDIGITOS1: TMenuItem;
+    CONTARPARES1: TMenuItem;
+    SUMARDIGITOS1: TMenuItem;
+    BINARIO1: TMenuItem;
+    OCTAL1: TMenuItem;
+    HEXADECIMAL1: TMenuItem;
+    BORRAR1: TMenuItem;
+    SALIR1: TMenuItem;
+    BUSCARDIGITOMAYOR1: TMenuItem;
+    BUSCARDIGITOMENOR1: TMenuItem;
+    ORDENAR1: TMenuItem;
+    procedure BINARIO1Click(Sender: TObject);
+    procedure HEXADECIMAL1Click(Sender: TObject);
+    procedure BUSCARDIGITOMAYOR1Click(Sender: TObject);
+    procedure BUSCARDIGITOMENOR1Click(Sender: TObject);
+    procedure CONTARPARES1Click(Sender: TObject);
+    procedure SALIR1Click(Sender: TObject);
+    procedure CONTARDIGITOS1Click(Sender: TObject);
+    procedure OCTAL1Click(Sender: TObject);
+    procedure SUMARDIGITOS1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.BINARIO1Click(Sender: TObject);
+var
+n,d,n1:integer;
+s:string;
+begin
+ n:=StrToInt(NU.Text);
+ n1:=n;
+ d:=0;
+ s:='';
+  while (n>0) do
+  begin
+   d:=n mod 2;
+   s:=IntToStr(d)+s;
+   n:=n div 2;
+  end;
+  R.Text:=(s);
+ end;
+procedure TForm1.BUSCARDIGITOMAYOR1Click(Sender: TObject);
+  var
+  n,d,mayor:integer;
+begin
+ n:=StrToInt(NU.Text);
+ d:=0;
+ mayor:=0;
+ while (n>0) do
+   begin
+   d:= n mod 10;
+   if(d>mayor) then mayor:=d;
+  n:=n div 10;
+end;
+  R.Text:=IntToStr(mayor);
+  end;
+
+procedure TForm1.BUSCARDIGITOMENOR1Click(Sender: TObject);
+var
+  n,d,menor:integer;
+begin
+ n:=StrToInt(NU.Text);
+ d:=0;
+ menor:=9;
+ while (n>0) do
+   begin
+   d:= n mod 10;
+   if(d<menor) then menor:=d;
+  n:=n div 10;
+end;
+  R.Text:=IntToStr(menor);
+  end;
+
+procedure TForm1.CONTARDIGITOS1Click(Sender: TObject);
+
+var
+  n,i: Integer;
+begin
+  i:=0;
+  n:= StrToInt(NU.Text);
+  while(n>0)do
+  begin
+    i:= i+1;
+    n:= n div 10;
+  end;
+R.Text:=IntToStr(i);
+
+end;
+
+procedure TForm1.CONTARPARES1Click(Sender: TObject);
+var
+ d,n,i: Integer;
+begin
+   n:= StrToInt(NU.Text);
+   d:= 0;  I:=0;
+   while n>0 do
+   begin
+     d:= n mod 10;
+     if d mod 2=0 then i:= i+1;
+     n:= n div 10;
+   end;
+   R.Text:= IntToStr(i);
+end;
+ function hexadecimal(n:integer):string;
+ var
+   d,valor:integer;
+   s: string;
+ begin
+   s:='';
+   valor:=n;
+   while (n>0) do
+    begin
+     d:= n mod 16;
+     if(d<10) then s:=IntToStr(d)+s
+            else begin
+              case d of
+                  10: s:='A'+s;
+                  11: s:='B'+s;
+                  12: s:='C'+S;
+                  13: s:='D'+s;
+                  14: s:='E'+s;
+                  15: s:='F'+s;
+              end;
+
+             end;
+     n:=n div 16;
+     end;
+     hexadecimal:=s;
+end;
+
+procedure TForm1.HEXADECIMAL1Click(Sender: TObject);
+ var
+ n:integer;
+begin
+ n:=StrToInt(NU.Text);
+ R.Text:=hexadecimal(n);
+end;
+
+procedure TForm1.OCTAL1Click(Sender: TObject);
+
+var
+n,d,n1:integer;
+s:string;
+begin
+ n:=StrToInt(NU.Text);
+ n1:=n;
+ d:=0;
+ s:='';
+  while (n>0) do
+  begin
+   d:=n mod 8;
+   s:=IntToStr(d)+s;
+   n:=n div 8;
+  end;
+  R.Text:=(s);
+ end;
+
+procedure TForm1.SALIR1Click(Sender: TObject);
+begin
+close ();
+end;
+
+procedure TForm1.SUMARDIGITOS1Click(Sender: TObject);
+var
+n,d,s,n1:Integer;
+
+begin
+  n:=StrToInt(NU.Text);
+  n1:=n;
+  s:=0;
+  d:=0;
+   while (n>0) do
+    begin
+      d:=n mod 10;
+      s:=(d)+s;
+      n:=n div 10;
+    end;
+   R.Text:=IntToStr(s);
+end;
+
+end.
