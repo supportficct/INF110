@@ -1,0 +1,107 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 0
+  Top = 0
+  Caption = 'CADENA'
+  ClientHeight = 344
+  ClientWidth = 388
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 24
+    Top = 120
+    Width = 7
+    Height = 25
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clNavy
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 24
+    Top = 27
+    Width = 83
+    Height = 13
+    Caption = 'Caracter/Cadena'
+  end
+  object Label3: TLabel
+    Left = 24
+    Top = 67
+    Width = 38
+    Height = 13
+    Caption = 'Posicion'
+  end
+  object Edit1: TEdit
+    Left = 113
+    Top = 24
+    Width = 121
+    Height = 21
+    TabOrder = 0
+  end
+  object Edit2: TEdit
+    Left = 113
+    Top = 64
+    Width = 121
+    Height = 21
+    TabOrder = 1
+  end
+  object MainMenu1: TMainMenu
+    Left = 176
+    Top = 192
+    object Cadena1: TMenuItem
+      Caption = 'Cadena'
+      object Longitud1: TMenuItem
+        Caption = 'Longitud'
+        OnClick = Longitud1Click
+      end
+      object AdicionarCaracter1: TMenuItem
+        Caption = 'Adicionar Caracter'
+        OnClick = AdicionarCaracter1Click
+      end
+      object ModificarCaracter1: TMenuItem
+        Caption = 'Modificar Caracter'
+        OnClick = ModificarCaracter1Click
+      end
+      object InsertarCaracter1: TMenuItem
+        Caption = 'Insertar Caracter'
+      end
+      object EliminarCaracter1: TMenuItem
+        Caption = 'Eliminar Caracter'
+      end
+      object ObtenerCaracter1: TMenuItem
+        Caption = 'Obtener Caracter'
+      end
+      object ObtenerCadena1: TMenuItem
+        Caption = 'Obtener Cadena'
+        OnClick = ObtenerCadena1Click
+      end
+      object AdicionarCadena1: TMenuItem
+        Caption = 'Adicionar Cadena'
+        OnClick = AdicionarCadena1Click
+      end
+      object SiguientePalabra1: TMenuItem
+        Caption = 'Siguiente Palabra'
+      end
+      object CadenaMasLarga1: TMenuItem
+        Caption = 'Cadena Mas Larga'
+      end
+    end
+    object Cadenasnuevas1: TMenuItem
+      Caption = 'Cadenas nuevas'
+      object CantidaddeVocales1: TMenuItem
+        Caption = 'Cantidad de Vocales'
+        OnClick = CantidaddeVocales1Click
+      end
+    end
+  end
+end

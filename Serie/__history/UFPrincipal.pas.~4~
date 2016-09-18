@@ -1,0 +1,90 @@
+unit UFPrincipal;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Menus,UCSerie, Grids;
+
+type
+  TfrmPrincipal = class(TForm)
+    MainMenu1: TMainMenu;
+    Serie1: TMenuItem;
+    GenearserieX1: TMenuItem;
+    GenerarserieY1: TMenuItem;
+    SG: TStringGrid;
+    Generarseriexx1: TMenuItem;
+    procedure Generarseriexx1Click(Sender: TObject);
+    procedure GenerarserieY1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure GenearserieX1Click(Sender: TObject);
+  private
+    { Private declarations }
+    S : Serie;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
+begin
+     S:=Serie.Create;
+end;
+
+procedure TfrmPrincipal.GenearserieX1Click(Sender: TObject);
+Var
+    n : String;
+    i : Word;
+    t : Integer;
+begin
+     n:=InputBox('Nro Terminos','Digite numero de terminos','1');
+     S.GenerarSerieX(StrToInt(n));
+     SG.ColCount:=S.CantTerminos;
+     for i := 1 to S.CantTerminos do
+     Begin
+          t:=S.ObtenerTermino(i);
+          SG.Cells[i-1,0]:=IntToStr(t);
+     end;
+       
+end;
+
+procedure TfrmPrincipal.Generarseriexx1Click(Sender: TObject);
+var
+  n : String;
+  i : word;
+  t : Integer;
+begin
+      n:=InputBox('Nro Terminos','Digite numero de terminos','1');
+     S.GenerarSeriexx(StrToInt(n));
+     SG.ColCount:=S.CantTerminos;
+     for i := 1 to S.CantTerminos do
+     Begin
+          t:=S.ObtenerTermino(i);
+          SG.Cells[i-1,0]:=IntToStr(t);
+     end;
+
+end;
+
+procedure TfrmPrincipal.GenerarserieY1Click(Sender: TObject);
+var
+  n : String;
+  i : word;
+  t : Integer;
+begin
+      n:=InputBox('Nro Terminos','Digite numero de terminos','1');
+     S.GenerarSerieY(StrToInt(n));
+     SG.ColCount:=S.CantTerminos;
+     for i := 1 to S.CantTerminos do
+     Begin
+          t:=S.ObtenerTermino(i);
+          SG.Cells[i-1,0]:=IntToStr(t);
+     end;
+end;
+
+end.

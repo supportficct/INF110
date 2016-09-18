@@ -1,0 +1,89 @@
+unit UCCadena;
+
+interface
+Uses SysUtils;
+Const
+    MaxC = 1024;
+Type
+    TCaracter = Array[1..MaxC] of Char;
+    Cadena = Class
+      private
+             Longitud : Word;
+             Caracteres : TCaracter;
+      public
+            Constructor Create;
+            Function Long : Word;
+            Function GetChar( P : Word) : Char;
+            Procedure AddChar( C : Char);
+            Procedure DelChar( P : Word);
+            Procedure InsChar( P : Word ; C : Char);
+            Procedure ModChar( P : Word ; C : Char);
+
+    end;
+
+implementation
+
+{ Cadena }
+
+procedure Cadena.AddChar(C: Char);
+begin
+     Inc(Longitud);
+     Caracteres[Longitud]:=C;
+end;
+
+constructor Cadena.Create;
+begin
+     Longitud:=0;
+end;
+
+procedure Cadena.DelChar(P: Word);
+var
+  I: Word;
+begin
+     if (P>0) And (P<=Longitud) then
+     Begin
+           for I := P to Longitud- 1 do
+              Caracteres[i]:=Caracteres[i+1];
+           Dec(Longitud);
+     end
+     else Raise Exception.Create('Error posicion fuera de rango');
+end;
+
+function Cadena.GetChar(P: Word): Char;
+begin
+     if (P>0) And (P<=Longitud) then
+     Begin
+          Result:=Caracteres[P];
+     end
+     else Raise Exception.Create('Error posicion fuera de rango');
+end;
+
+procedure Cadena.InsChar(P: Word; C: Char);
+Var
+  I : Word;
+begin
+     if (P>0) And (P<=Longitud) then
+     Begin
+          Inc(Longitud);
+          for I := Longitud Downto P+ 1 do
+              Caracteres[i]:=Caracteres[i-1];
+          Caracteres[P]:=C;
+     end
+     else Raise Exception.Create('Error posicion fuera de rango');
+end;
+
+function Cadena.Long: Word;
+begin
+     Result:=Longitud;
+end;
+
+procedure Cadena.ModChar(P: Word; C: Char);
+begin
+     if (P>0) And (P<=Longitud) then
+     Begin
+          Caracteres[P]:=C;
+     end
+     else Raise Exception.Create('Error posicion fuera de rango');
+end;
+
+end.

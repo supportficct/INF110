@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/08/31 19:49:13.437.pas,C:\Documents and Settings\Pc\Mis documentos\Borland Studio Projects\Unit1.pas=D:\Programacion I\Cadena\UFPrincipal.pas</Transaction>
+    <Transaction>2010/08/31 19:49:13.453.dfm,C:\Documents and Settings\Pc\Mis documentos\Borland Studio Projects\Unit1.dfm=D:\Programacion I\Cadena\UFPrincipal.dfm</Transaction>
+    <Transaction>2010/08/31 19:49:30.140.bdsproj,C:\Documents and Settings\Pc\Mis documentos\Borland Studio Projects\Project1.bdsproj=D:\Programacion I\Cadena\Cadena.bdsproj</Transaction>
+    <Transaction>2010/08/31 19:56:38.359.pas,D:\Programacion I\Cadena\Unit1.pas=D:\Programacion I\Cadena\UCCadena.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,88 @@
+unit UCSerie;
+
+interface
+Uses Sysutils;
+Const
+    MaxT = 1024;
+Type
+    TTermino = Array[1..MaxT] of Integer;
+    Serie = Class
+       Private
+            NroTerminos : Word;
+            Terminos : TTermino;
+            TermActual : Word;
+       Public
+              Constructor Create;
+              Function CantTerminos : Word;
+              Procedure GenerarSerieX(N: Word);
+              Procedure GenerarSerieY(N: Word);
+              Function ObtenerTermino( p : word) : Integer;
+    end;
+
+implementation
+
+{ Serie }
+
+function Serie.CantTerminos: Word;
+begin
+     Result:=NroTerminos;
+end;
+
+constructor Serie.Create;
+begin
+     NroTerminos:=0;
+     TermActual:=0;
+
+end;
+
+procedure Serie.GenerarSerieX(N: Word);
+var
+  I,t,r: Integer;
+begin
+     t:=1;
+     r:=2;
+     for I := 1 to n do
+     Begin
+          Terminos[i]:=t;
+          t:=t+r;
+          r:=r+1;
+     end;
+end;
+
+procedure Serie.GenerarSerieY(N: Word);
+Var
+    c,a,i : Word;
+    sw: Boolean;
+begin
+     c:=1;
+     a:=2;
+     i:=1;
+     sw:=False;
+     while n>0 do
+     begin
+          if sw=true then
+          begin
+               Terminos[i]:=a;
+               sw:=false;
+          end
+          else
+          begin
+               Terminos[i]:=c;
+               c:=c-1;
+               sw:=True;
+          end;
+          n:=n-1;
+          i:=+1;
+     end;
+
+end;
+
+function Serie.ObtenerTermino(p: word): Integer;
+begin
+     if (P>0) And (P<=NroTerminos)then
+         Result:=Terminos[P]
+     else Raise Exception.Create('Error : Posicion fuera de rango..');
+
+end;
+
+end.
